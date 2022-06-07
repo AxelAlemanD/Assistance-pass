@@ -20,12 +20,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_weight="1"
+        android:backgroundTint="#191919"
         app:tabGravity="fill"
+        app:tabIconTint="#FFFFFF"
         app:tabIndicatorColor="#B6B023"
         app:tabIndicatorGravity="top"
         app:tabInlineLabel="false"
         app:tabMaxWidth="0dp"
-        app:tabMode="fixed">
+        app:tabMode="fixed"
+        app:tabRippleColor="#FFFFFF"
+        app:tabSelectedTextColor="#B6B023"
+        app:tabTextColor="#FFFFFF">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
