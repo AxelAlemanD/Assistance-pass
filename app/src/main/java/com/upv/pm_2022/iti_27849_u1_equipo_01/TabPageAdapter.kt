@@ -12,6 +12,7 @@ class TabPageAdapter(activity: FragmentActivity, private val tabCount: Int) : Fr
             0 -> DashboardFragment()
             1 -> GroupsFragment()
             2 -> StudentsFragment()
+            3 -> AssistancePassFragment()
             else -> DashboardFragment()
         }
     }
