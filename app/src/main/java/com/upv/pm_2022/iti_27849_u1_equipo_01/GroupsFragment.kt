@@ -18,7 +18,10 @@ import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
  */
 class GroupsFragment : Fragment() {
 
-    lateinit var createGroupBtn : Button
+    lateinit var createGroupBtn: Button
+    lateinit var lvGroups: ListView
+    lateinit var adapterGroups: ArrayAdapter<Group>
+    var listGroups: MutableList<Group> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +30,11 @@ class GroupsFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_groups, container, false)
         val GroupDb = GroupDbHelper(this.requireContext())
-
+        lvGroups = view.findViewById(R.id.lvGroups)
         createGroupBtn = view.findViewById(R.id.createGroupBtn)
+        listGroups.addAll(GroupDb.all())
+        adapterGroups = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, listGroups)
+        lvGroups.adapter = adapterGroups
 
         createGroupBtn.setOnClickListener{
             showDialogToCreateGroup(GroupDb)
@@ -37,6 +43,9 @@ class GroupsFragment : Fragment() {
         return view
     }
 
+    /**
+     * Show dialog to create a new group
+     */
     private fun showDialogToCreateGroup(GroupDb : GroupDbHelper){
         // Assign values
         val builder = AlertDialog.Builder(context)
@@ -51,14 +60,23 @@ class GroupsFragment : Fragment() {
         val saveGroupBtn = viewDialog.findViewById<Button>(R.id.saveGroupBtn)
 
         saveGroupBtn.setOnClickListener {
-            createNewGroup(groupName, GroupDb)
+            if(createNewGroup(groupName, GroupDb))
+                dialog.hide()
         }
     }
 
-    private fun createNewGroup(groupName: EditText, GroupDb: GroupDbHelper){
+    /**
+     * Get input data and create a new group
+     * @return Boolean is inserted
+     */
+    private fun createNewGroup(groupName: EditText, GroupDb: GroupDbHelper): Boolean{
         if(Validator.validateField(groupName)){
-            GroupDb.create(Group(null, groupName.text.toString()))
+            var group = GroupDb.create(Group(null, groupName.text.toString()))
+            listGroups.add(group)
+            adapterGroups.notifyDataSetChanged()
             Toast.makeText(requireContext(), "Grupo agregado", Toast.LENGTH_SHORT).show()
+            return true
         }
+        return false
     }
 }

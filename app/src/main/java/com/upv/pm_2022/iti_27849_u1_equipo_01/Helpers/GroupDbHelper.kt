@@ -30,10 +30,11 @@ class GroupDbHelper (context: Context) : SQLiteOpenHelper(context, "assistancePa
     /**
      * Insert a new record in the Groups table
      * @param Group group: Group to insert
-     * @return Long inserted record id
+     * @return Group inserted Group
      */
-    fun create(group: Group): Long? {
-        return DB_WRITABLE?.insert(GroupContract.FeedGroup.TABLE_NAME, null, group.toContentValues())
+    fun create(group: Group): Group {
+        var id = DB_WRITABLE?.insert(GroupContract.FeedGroup.TABLE_NAME, null, group.toContentValues())
+        return find(id.toString())
     }
 
 
@@ -134,8 +135,6 @@ class GroupDbHelper (context: Context) : SQLiteOpenHelper(context, "assistancePa
      * @return Group
      */
     fun toGroup(cursor: Cursor) : Group {
-//        var id: Int
-//        var name: String
         var group = Group()
 
         with(cursor) {
