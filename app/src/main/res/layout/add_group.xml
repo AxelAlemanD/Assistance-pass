@@ -23,7 +23,7 @@
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/btnSaveGroup"
+        android:id="@+id/saveGroupBtn"
         android:layout_width="match_parent"
         android:layout_marginLeft="90dp"
         android:backgroundTint="#00FFD4"
