@@ -2,4 +2,10 @@
     <string name="app_name">Iti-27849-u1_equipo_01</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="groups">
+        <item>ITI-27389</item>
+        <item>ITI-27324</item>
+        <item>ITI-27338</item>
+        <item>ITI-27385</item>
+    </string-array>
 </resources>
