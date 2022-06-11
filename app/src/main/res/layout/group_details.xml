@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191919" >
+    android:background="#191919"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,12 +23,11 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnAssistancePassGD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pasar lista"
-            android:textAllCaps="false"
-            app:cornerRadius="25dp" />
+            android:textAllCaps="false" />
 
     </LinearLayout>
 
@@ -118,7 +117,6 @@
             android:text="Guardar CSV"
             android:textAllCaps="false"
             android:textColor="#D0BCFF"
-            app:cornerRadius="15dp"
             app:strokeColor="#938F99"
             app:strokeWidth="1dp" />
 
@@ -138,8 +136,7 @@
             android:padding="2dp"
             android:text="Agregar alumno"
             android:textAllCaps="false"
-            android:textColor="#381E72"
-            app:cornerRadius="15dp" />
+            android:textColor="#381E72" />
 
         <!-- Button calculate -->
     </LinearLayout>
