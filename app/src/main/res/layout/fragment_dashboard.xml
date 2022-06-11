@@ -4,21 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/image_1"
+    android:scrollbars="vertical"
     android:contentDescription="groupsapp_name"
     tools:context=".DashboardFragment">
 
-    <!--        android:background="#252525"-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#191919"
         android:orientation="vertical"
+        android:scrollbars="vertical"
         android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4.3"
+            android:layout_weight="3.5"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -27,14 +32,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
-                android:text="Hoy es "
+                android:text="Hoy"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="-10dp"
                 android:layout_weight="1"
                 android:text="04 de Junio"
                 android:textSize="26sp" />
@@ -43,36 +47,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3.8"
+            android:layout_weight="2"
             android:orientation="horizontal"
             android:padding="5dp">
 
-            <!--            <Button-->
-            <!--                android:id="@+id/button2"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:layout_margin="5dp"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:backgroundTint="#333333"-->
-            <!--                android:text="Button"-->
-            <!--                android:textColor="#F3F3F3" />-->
-
-            <!--            <Button-->
-            <!--                android:id="@+id/button"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:layout_margin="5dp"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:backgroundTint="#333333"-->
-            <!--                android:text="Button"-->
-            <!--                android:textColor="#F3F3F3" />-->
             <RelativeLayout
+                android:id="@+id/btnAssistancePass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:background="#372F3A"
                 android:layout_weight="2"
-                android:background="#333333"
-                android:backgroundTint="#333333"
                 android:padding="15dp">
 
                 <LinearLayout
@@ -101,7 +86,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="-60dp"
-                            android:layout_weight="2"
+                            android:layout_weight="20"
                             android:src="@android:drawable/ic_menu_sort_by_size" />
 
                         <ImageView
@@ -118,12 +103,12 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/btnRandomStudent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:background="#372F3A"
                 android:layout_weight="2"
-                android:background="#333333"
-                android:backgroundTint="#333333"
                 android:padding="15dp">
 
                 <LinearLayout
@@ -141,6 +126,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
                         android:text="Arroja un alumno de manera aleatoria" />
 
                     <LinearLayout
@@ -151,8 +137,8 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="-60dp"
-                            android:layout_weight="2"
+                            android:layout_marginLeft="-50dp"
+                            android:layout_weight="20"
                             android:src="@android:drawable/ic_popup_sync" />
 
                         <ImageView
@@ -174,7 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:layout_weight="4"
+            android:layout_weight="2.9"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -239,7 +225,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
@@ -254,7 +239,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="2.3"
                 android:orientation="horizontal"
                 android:paddingRight="180dp">
 
@@ -270,13 +255,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
+                    android:entries="@array/groups"
                     android:spinnerMode="dropdown" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3.5"
+                android:layout_weight="2.2"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -345,7 +331,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:text="Alumnos inscritos al grupo"
                 android:textSize="14sp" />
 
@@ -353,9 +339,12 @@
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5" />
+
+                />
 
         </LinearLayout>
 
     </LinearLayout>
+    </ScrollView>
+
 </FrameLayout>
