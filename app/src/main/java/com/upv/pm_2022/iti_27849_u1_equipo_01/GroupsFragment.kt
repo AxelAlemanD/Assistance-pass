@@ -3,11 +3,11 @@ package com.upv.pm_2022.iti_27849_u1_equipo_01
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Helpers.GroupDbHelper
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
 
@@ -40,6 +40,10 @@ class GroupsFragment : Fragment() {
             showDialogToCreateGroup(GroupDb)
         }
 
+        lvGroups.setOnItemClickListener { parent, view, position, id ->
+            val selectedGroup = adapterGroups.getItem(position)
+            startGroupDetailsActivity(selectedGroup!!)
+        }
         return view
     }
 
@@ -78,5 +82,17 @@ class GroupsFragment : Fragment() {
             return true
         }
         return false
+    }
+
+    /**
+     * Start the group details activity and submit the selected group
+     * @param Group selected group of ListView
+     */
+    private fun startGroupDetailsActivity(selectedGroup: Group){
+        val intent = Intent(this.requireContext(), GroupDetails::class.java)
+        val bundle = Bundle()
+        bundle.putSerializable("group", selectedGroup)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 }
