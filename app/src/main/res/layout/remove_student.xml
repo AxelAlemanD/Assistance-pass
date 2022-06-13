@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/image_1"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="¿Eliminar alumno?"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Si eliminas al alumno Jose María Morelos y Pavón se eliminará de forma permanente de la aplicación"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/cancelStudentBtn"
+            android:text="No, mantener alumno"
+            android:layout_weight="4"
+            android:backgroundTint="#00FFD4"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#1C0E26"
+            app:cornerRadius="30dp"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/saveStudentBtn"
+            android:text="Sí, eliminar alumno"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="2"
+            android:backgroundTint="#00FFD4"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#1C0E26"
+            app:cornerRadius="30dp"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
