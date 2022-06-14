@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
-        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/add_group.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_groups.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_students.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/group_details.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/random_student.xml" value="0.19270833333333334" />
       </map>
     </option>
   </component>
