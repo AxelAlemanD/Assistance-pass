@@ -176,10 +176,11 @@
                     android:text="Grupos asignados" />
 
                 <TextView
+                    android:id="@+id/tvTotalGroups"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="13"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:text="0" />
             </LinearLayout>
 
             <LinearLayout
@@ -195,10 +196,11 @@
                     android:text="Alumnos inscritos" />
 
                 <TextView
+                    android:id="@+id/tvTotalStudents"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="157"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:text="0" />
             </LinearLayout>
 
             <LinearLayout
@@ -255,7 +257,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:entries="@array/groups"
                     android:spinnerMode="dropdown" />
             </LinearLayout>
 
@@ -279,11 +280,10 @@
                         android:text="Alumnos inscritos:" />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/tvTotalStudentsOfSelectedGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="20"
-                        android:text="55" />
+                        android:layout_weight="20" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -299,6 +299,7 @@
                         android:text="Pases de lista:" />
 
                     <TextView
+                        android:id="@+id/tvTotalAssistancesOfSelectedGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="20"
@@ -336,7 +337,7 @@
                 android:textSize="14sp" />
 
             <ListView
-                android:id="@+id/listView"
+                android:id="@+id/lvStudents"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 

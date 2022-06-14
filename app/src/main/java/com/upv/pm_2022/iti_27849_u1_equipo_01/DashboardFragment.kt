@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Spinner
+import android.widget.*
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.ASSISTANCES
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS_STUDENTS
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.STUDENTS
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
 
 /**
  * A simple [Fragment] subclass.
@@ -16,11 +20,17 @@ import android.widget.Spinner
  */
 class DashboardFragment : Fragment() {
 
-    lateinit var spGroups       : Spinner
-    lateinit var adapterGroups  : ArrayAdapter<CharSequence>
-    lateinit var listView       : ListView
-    var listStudents     : MutableList<String> = mutableListOf()
-    lateinit var adapterStudents  : ArrayAdapter<CharSequence>
+    lateinit var tvTotalAssistancesOfSelectedGroup: TextView
+    lateinit var tvTotalGroups: TextView
+    lateinit var tvTotalStudents: TextView
+    lateinit var tvTotalStudentsOfSelectedGroup: TextView
+    lateinit var lvStudents : ListView
+    lateinit var adapterStudents : ArrayAdapter<Student>
+    lateinit var spGroups : Spinner
+    lateinit var adapterGroups : ArrayAdapter<Group>
+    companion object{
+        var listGroups : MutableList<Group> = mutableListOf()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,31 +39,52 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
+        tvTotalStudents = view.findViewById(R.id.tvTotalStudents)
+        tvTotalGroups = view.findViewById(R.id.tvTotalGroups)
+        tvTotalStudentsOfSelectedGroup = view.findViewById(R.id.tvTotalStudentsOfSelectedGroup)
+        tvTotalAssistancesOfSelectedGroup = view.findViewById(R.id.tvTotalAssistancesOfSelectedGroup)
         spGroups = view.findViewById(R.id.groupsSpinner)
-        listView = view.findViewById(R.id.listView)
-
+        lvStudents = view.findViewById(R.id.lvStudents)
+        listGroups.addAll(GROUPS.all())
 
         // Load test data into spinner
-        adapterGroups = ArrayAdapter.createFromResource(requireContext(), R.array.groups, android.R.layout.simple_spinner_item);
-        adapterGroups.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        spGroups.setAdapter(adapterGroups); // Bind adapter with operator spinner
+        adapterGroups = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, listGroups)
+        spGroups.setAdapter(adapterGroups) // Bind adapter with operator spinner
 
+        // Code extract from: https://stackoverflow.com/a/49376648
+        spGroups?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) { }
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedGroup = adapterGroups.getItem(position)
+                loadGroupInfo(selectedGroup!!)
+            }
+        }
 
-        // Load test data into ListView
-        listStudents.add("Axel Issai Alemán Delgado")
-        listStudents.add("José Carlos Avalos Ruiz")
-        listStudents.add("José Manuel Rodriguez Garcia")
-        listStudents.add("Juan de Dios Nava Gallardo")
-        listStudents.add("Orlando Samuel Martinez Dorantes")
-
-        adapterStudents = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1,
-            listStudents as List<CharSequence>
-        )
-        listView.adapter = adapterStudents
-
-
-
+        loadStats()
 
         return view
+    }
+
+    /**
+     * Load general statistics
+     */
+    fun loadStats(){
+        tvTotalGroups.text = listGroups.size.toString()
+        tvTotalStudents.text = STUDENTS.getTotalStudents().toString()
+    }
+
+    /**
+     * Load information of selected group
+     * @param Group selectedGroup
+     */
+    fun loadGroupInfo(selectedGroup: Group){
+        val studentsOfSelectedGroup : MutableList<Student> = selectedGroup?.getStudents()!!
+
+        tvTotalStudentsOfSelectedGroup.text = studentsOfSelectedGroup.size.toString()
+        tvTotalAssistancesOfSelectedGroup.text = ASSISTANCES.getGroupAssistances(selectedGroup.id.toString()).size.toString()
+
+        // Load students into ListView
+        adapterStudents = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, studentsOfSelectedGroup)
+        lvStudents.adapter = adapterStudents
     }
 }
