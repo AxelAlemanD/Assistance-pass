@@ -1,6 +1,7 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts
 
 import android.database.Cursor
+import android.database.DatabaseUtils
 import android.provider.BaseColumns
 import com.upv.pm_2022.iti_27849_u1_equipo_01.MainActivity
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
@@ -90,6 +91,14 @@ object STUDENTS {
             null                    // don't sort
         )
         return toStudent(cursor)
+    }
+
+    /**
+     * Get total row from Students table
+     * @param Long total students
+     */
+    fun getTotalStudents(): Long{
+        return DatabaseUtils.queryNumEntries(MainActivity.db.readableDatabase, TABLE_NAME);
     }
 
     /**
