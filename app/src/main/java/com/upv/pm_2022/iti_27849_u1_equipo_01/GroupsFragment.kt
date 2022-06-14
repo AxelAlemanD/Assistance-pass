@@ -21,7 +21,6 @@ class GroupsFragment : Fragment() {
     lateinit var createGroupBtn: Button
     lateinit var lvGroups: ListView
     lateinit var adapterGroups: ArrayAdapter<Group>
-    var listGroups: MutableList<Group> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +30,7 @@ class GroupsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_groups, container, false)
         lvGroups = view.findViewById(R.id.lvGroups)
         createGroupBtn = view.findViewById(R.id.createGroupBtn)
-        listGroups.addAll(GROUPS.all())
-        adapterGroups = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, listGroups)
+        adapterGroups = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, DashboardFragment.listGroups)
         lvGroups.adapter = adapterGroups
 
         createGroupBtn.setOnClickListener{
@@ -75,7 +73,7 @@ class GroupsFragment : Fragment() {
     private fun createNewGroup(groupName: EditText): Boolean{
         if(Validator.validateField(groupName)){
             var group = GROUPS.create(Group(null, groupName.text.toString()))
-            listGroups.add(group)
+            DashboardFragment.listGroups.add(group)
             adapterGroups.notifyDataSetChanged()
             Toast.makeText(requireContext(), "Grupo agregado", Toast.LENGTH_SHORT).show()
             return true

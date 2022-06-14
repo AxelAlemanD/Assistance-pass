@@ -40,6 +40,6 @@ class Group(var id: Int? = null, var name: String? = null) : Serializable {
      * @return String
      */
     override fun toString() : String{
-        return "ID: $id \t NAME: $name"
+        return "$name"
     }
 }

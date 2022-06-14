@@ -4,7 +4,9 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.ASSISTANCES
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS_STUDENTS
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.STUDENTS
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
@@ -20,7 +22,7 @@ class GroupDetails : AppCompatActivity(){
     lateinit var addStudentBtn: Button
     lateinit var lvGroupStudents: ListView
     lateinit var adapterStudents: ArrayAdapter<Student>
-    var listStudents: MutableList<Student> = mutableListOf()
+    var studentsOfSelectedGroup: MutableList<Student> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,15 +44,8 @@ class GroupDetails : AppCompatActivity(){
 
         if (recivedObject != null) {
             group = recivedObject.getSerializable("group") as Group
-            groupName.text = group.name
-            registeredStudents.text = "0"
-            totalAttendancePasses.text = "0"
-            totalStudentsFailedDueToAbsence.text = "0"
+            loadGroupInfo(group)
         }
-
-        listStudents.addAll(group.getStudents())
-        adapterStudents = ArrayAdapter(this.applicationContext, android.R.layout.simple_list_item_1, listStudents)
-        lvGroupStudents.adapter = adapterStudents
 
         addStudentBtn.setOnClickListener{
             showDialogToAddStudent()
@@ -72,11 +67,28 @@ class GroupDetails : AppCompatActivity(){
     }
 
     /**
+     * Load information of selected group
+     * @param Group selectedGroup
+     */
+    fun loadGroupInfo(selectedGroup: Group){
+        studentsOfSelectedGroup.addAll(selectedGroup?.getStudents()!!)
+        groupName.text = selectedGroup.name
+        registeredStudents.text = studentsOfSelectedGroup.size.toString()
+        totalAttendancePasses.text = ASSISTANCES.getGroupAssistances(selectedGroup.id.toString()).size.toString()
+        totalStudentsFailedDueToAbsence.text = "0"
+
+
+        // Load students into ListView
+        adapterStudents = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, studentsOfSelectedGroup)
+        lvGroupStudents.adapter = adapterStudents
+    }
+
+    /**
      * Show dialog to create a new group
      */
     private fun showDialogToAddStudent(){
         // Assign values
-        val builder = AlertDialog.Builder(this.applicationContext)
+        val builder = AlertDialog.Builder(this)
         val viewDialog = layoutInflater.inflate(R.layout.add_student_from_group, null)
         // Pass view to builder
         builder.setView(viewDialog)
@@ -102,7 +114,7 @@ class GroupDetails : AppCompatActivity(){
         if(Validator.validateField(first_name) && Validator.validateField(last_name)){
             var student = STUDENTS.create(Student(null, first_name.text.toString(), last_name.text.toString()))
             student.assignGroup(group)
-            listStudents.add(student)
+            studentsOfSelectedGroup.add(student)
             adapterStudents.notifyDataSetChanged()
             Toast.makeText(this.applicationContext, "Alumno agregado", Toast.LENGTH_SHORT).show()
             return true
