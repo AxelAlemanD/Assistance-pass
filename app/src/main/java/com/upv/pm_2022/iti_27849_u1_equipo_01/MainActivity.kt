@@ -9,6 +9,9 @@ class MainActivity : AppCompatActivity() {
 
     var viewPager: ViewPager2? = null
     var tabLayout: TabLayout? = null
+    companion object{
+        lateinit var db: DbHelper
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewPager)
         tabLayout = findViewById(R.id.tabLayout)
+        db = DbHelper(applicationContext)
 
         setUpTabBar()
     }

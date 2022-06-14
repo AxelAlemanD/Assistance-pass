@@ -129,7 +129,7 @@
             android:orientation="horizontal"></LinearLayout>
 
         <Button
-            android:id="@+id/btnCalculate"
+            android:id="@+id/addStudentBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -159,7 +159,7 @@
             android:textSize="14sp" />
 
         <ListView
-            android:id="@+id/listView"
+            android:id="@+id/lvGroupStudents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5" />
