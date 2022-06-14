@@ -22,7 +22,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/btnLoadFile"
+        android:id="@+id/getRandomBtn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="60dp"
@@ -55,10 +55,9 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/planets_spinner"
+            android:id="@+id/spGroups"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/groups"
             android:spinnerMode="dropdown" />
 
     </LinearLayout>
@@ -79,10 +78,9 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/totalComments"
+            android:id="@+id/studentSelected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="José María Morelos y Pavon"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="25sp"
