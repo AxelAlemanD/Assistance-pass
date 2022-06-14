@@ -39,11 +39,11 @@ object ASSISTANCES {
      */
     fun getStudentAssistances(studentId: String): MutableList<Assistance>{
         var cursor = MainActivity.db.readableDatabase.rawQuery(
-            "SELECT assistances.id, assistances.date, assistances.is_late, assistances.group_id, assistances.student_id " +
+            "SELECT assistances._id, assistances.date, assistances.is_late, assistances.group_id, assistances.student_id " +
                 "FROM students " +
                 "INNER JOIN assistances " +
-                "ON students.id = assistances.student_id " +
-                "and students.id = $studentId", null)
+                "ON students._id = assistances.student_id " +
+                "and students._id = $studentId", null)
 
         return toAssistanceList(cursor)
     }
@@ -55,11 +55,11 @@ object ASSISTANCES {
      */
     fun getGroupAssistances(groupId: String): MutableList<Assistance>{
         var cursor = MainActivity.db.readableDatabase.rawQuery(
-            "SELECT assistances.id, assistances.date, assistances.is_late, assistances.group_id, assistances.student_id " +
+            "SELECT assistances._id, assistances.date, assistances.is_late, assistances.group_id, assistances.student_id " +
                 "FROM groups " +
                 "INNER JOIN assistances " +
-                "ON groups.id = assistances.group_id " +
-                "and groups.id = $groupId", null)
+                "ON groups._id = assistances.group_id " +
+                "and groups._id = $groupId", null)
 
         return toAssistanceList(cursor)
     }

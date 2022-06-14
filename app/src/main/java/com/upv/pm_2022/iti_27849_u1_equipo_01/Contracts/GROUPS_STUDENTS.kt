@@ -37,12 +37,12 @@ object GROUPS_STUDENTS {
      * @return MutableList<Student> List of students
      */
     fun getStudentsByGroup(groupId: String): MutableList<Student> {
-        var cursor = MainActivity.db.readableDatabase.rawQuery("SELECT t3.id, t3.first_name, t3.last_name " +
+        var cursor = MainActivity.db.readableDatabase.rawQuery("SELECT t3._id, t3.first_name, t3.last_name " +
                 "FROM groups t1 " +
-                "INNER JOIN groups_students t2 " +
-                "ON t1.id = t2.group_id " +
-                "and t1.id = $groupId " +
-                "INNER JOIN students T3 on t3.id = t2.student_id", null)
+                "INNER JOIN $TABLE_NAME t2 " +
+                "ON t1._id = t2.group_id " +
+                "and t1._id = $groupId " +
+                "INNER JOIN students T3 on t3._id = t2.student_id", null)
 
         return STUDENTS.toStudentList(cursor)
     }
