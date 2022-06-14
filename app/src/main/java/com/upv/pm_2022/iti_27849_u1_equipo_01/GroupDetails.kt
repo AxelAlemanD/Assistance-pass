@@ -31,6 +31,14 @@ class GroupDetails : AppCompatActivity(){
 
         val intent = intent
         val recivedObject = intent.extras
+        
+        groupName = findViewById(R.id.groupName)
+        btnAssistancePassGD = findViewById(R.id.btnAssistancePassGD)
+        registeredStudents = findViewById(R.id.registeredStudents)
+        totalAttendancePasses = findViewById(R.id.totalAttendancePasses)
+        totalStudentsFailedDueToAbsence = findViewById(R.id.totalStudentsFailedDueToAbsence)
+        lvGroupStudents = findViewById(R.id.lvGroupStudents)
+        addStudentBtn = findViewById(R.id.addStudentBtn)
 
         if (recivedObject != null) {
             group = recivedObject.getSerializable("group") as Group
@@ -40,13 +48,6 @@ class GroupDetails : AppCompatActivity(){
             totalStudentsFailedDueToAbsence.text = "0"
         }
 
-        groupName = findViewById(R.id.groupName)
-        btnAssistancePassGD = findViewById(R.id.btnAssistancePassGD)
-        registeredStudents = findViewById(R.id.registeredStudents)
-        totalAttendancePasses = findViewById(R.id.totalAttendancePasses)
-        totalStudentsFailedDueToAbsence = findViewById(R.id.totalStudentsFailedDueToAbsence)
-        lvGroupStudents = findViewById(R.id.lvGroupStudents)
-        addStudentBtn = findViewById(R.id.addStudentBtn)
         listStudents.addAll(group.getStudents())
         adapterStudents = ArrayAdapter(this.applicationContext, android.R.layout.simple_list_item_1, listStudents)
         lvGroupStudents.adapter = adapterStudents
