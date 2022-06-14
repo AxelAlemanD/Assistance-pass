@@ -1,7 +1,9 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_01.Models
 
 import android.content.ContentValues
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.ASSISTANCES
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS_STUDENTS
 import java.io.Serializable
 
 class Group(var id: Int? = null, var name: String? = null) : Serializable {
