@@ -1,5 +1,6 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_01
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,6 +21,7 @@ import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
  */
 class DashboardFragment : Fragment() {
 
+    lateinit var btnRandomStudent : RelativeLayout
     lateinit var tvTotalAssistancesOfSelectedGroup: TextView
     lateinit var tvTotalGroups: TextView
     lateinit var tvTotalStudents: TextView
@@ -39,6 +41,7 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
+        btnRandomStudent = view.findViewById(R.id.btnRandomStudent)
         tvTotalStudents = view.findViewById(R.id.tvTotalStudents)
         tvTotalGroups = view.findViewById(R.id.tvTotalGroups)
         tvTotalStudentsOfSelectedGroup = view.findViewById(R.id.tvTotalStudentsOfSelectedGroup)
@@ -58,6 +61,11 @@ class DashboardFragment : Fragment() {
                 val selectedGroup = adapterGroups.getItem(position)
                 loadGroupInfo(selectedGroup!!)
             }
+        }
+
+        btnRandomStudent.setOnClickListener{
+            val intent = Intent(this.requireContext(), RandomStudent::class.java)
+            startActivity(intent)
         }
 
         loadStats()

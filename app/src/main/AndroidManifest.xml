@@ -21,6 +21,9 @@
         <activity
             android:name=".GroupDetails">
         </activity>
+        <activity
+            android:name=".RandomStudent">
+        </activity>
     </application>
 
 </manifest>
