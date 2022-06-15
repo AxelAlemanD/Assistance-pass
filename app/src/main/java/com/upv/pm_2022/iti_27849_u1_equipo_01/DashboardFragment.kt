@@ -96,7 +96,7 @@ class DashboardFragment : Fragment() {
         val studentsOfSelectedGroup : MutableList<Student> = selectedGroup?.getStudents()!!
 
         tvTotalStudentsOfSelectedGroup.text = studentsOfSelectedGroup.size.toString()
-        tvTotalAssistancesOfSelectedGroup.text = ASSISTANCES.getGroupAssistances(selectedGroup.id.toString()).size.toString()
+        tvTotalAssistancesOfSelectedGroup.text = selectedGroup.getTotalAssistancesPasses().toString()
 
         // Load students into ListView
         adapterStudents = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, studentsOfSelectedGroup)

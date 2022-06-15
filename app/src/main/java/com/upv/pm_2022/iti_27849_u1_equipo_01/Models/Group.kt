@@ -36,6 +36,14 @@ class Group(var id: Int? = null, var name: String? = null) : Serializable {
     }
 
     /**
+     * Get total attendance passes of this group
+     * @return Int Total as
+     */
+    fun getTotalAssistancesPasses(): Int{
+        return ASSISTANCES.getTotalGroupAssistances(this.id.toString()).toInt()
+    }
+
+    /**
      * Parse instance to string
      * @return String
      */

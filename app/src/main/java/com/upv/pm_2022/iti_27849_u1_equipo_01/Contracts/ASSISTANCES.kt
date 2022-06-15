@@ -1,12 +1,11 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts
 
-import android.content.ContentValues
 import android.database.Cursor
+import android.database.DatabaseUtils
 import android.provider.BaseColumns
 import com.upv.pm_2022.iti_27849_u1_equipo_01.MainActivity
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Assistance
-import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
-import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
+
 
 object ASSISTANCES {
     const val TABLE_NAME = "assistances"
@@ -55,13 +54,33 @@ object ASSISTANCES {
      */
     fun getGroupAssistances(groupId: String): MutableList<Assistance>{
         var cursor = MainActivity.db.readableDatabase.rawQuery(
-            "SELECT assistances._id, assistances.date, assistances.is_late, assistances.group_id, assistances.student_id " +
-                "FROM groups " +
-                "INNER JOIN assistances " +
-                "ON groups._id = assistances.group_id " +
-                "and groups._id = $groupId", null)
-
+            "SELECT * FROM assistances WHERE group_id = $groupId",
+            null)
+//        var cursor = MainActivity.db.readableDatabase.rawQuery(
+//            "SELECT assistances._id, assistances.date, assistances.is_late, assistances.group_id, assistances.student_id " +
+//                "FROM groups " +
+//                "INNER JOIN assistances " +
+//                "ON groups._id = assistances.group_id " +
+//                "and groups._id = $groupId", null)
         return toAssistanceList(cursor)
+    }
+
+
+    /**
+     * Get all the attendances of a group
+     * @param String studentId: group to get
+     * @return MutableList<Assistance> List of assistances
+     */
+    fun getTotalGroupAssistances(groupId: String): Long{
+        val assistPasses = DatabaseUtils.longForQuery(MainActivity.db.readableDatabase, "SELECT COUNT(*) FROM assistances WHERE group_id = $groupId", null)
+        val totalStudents = GROUPS_STUDENTS.getTotalStudentsInTheGroup(groupId)
+        var totalAssistances: Long = 0
+        System.out.println("assistPasses $assistPasses")
+        System.out.println("totalStudents $totalStudents")
+        try{
+            totalAssistances = assistPasses / totalStudents
+        } catch (e: ArithmeticException){}
+        return totalAssistances
     }
 
     /**
@@ -84,7 +103,6 @@ object ASSISTANCES {
                 is_late = getInt(getColumnIndexOrThrow(COLUMN_NAME_IS_LATE))
                 group_id = getInt(getColumnIndexOrThrow(COLUMN_NAME_GROUP_ID))
                 student_id = getInt(getColumnIndexOrThrow(COLUMN_NAME_STUDENT_ID))
-
                 assistances.add(Assistance(id, date, is_late, group_id, student_id))
             }
         }

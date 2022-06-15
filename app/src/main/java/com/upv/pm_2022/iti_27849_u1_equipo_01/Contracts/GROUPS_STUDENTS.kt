@@ -2,6 +2,7 @@ package com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts
 
 import android.content.ContentValues
 import android.database.Cursor
+import android.database.DatabaseUtils
 import android.provider.BaseColumns
 import com.upv.pm_2022.iti_27849_u1_equipo_01.MainActivity
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
@@ -45,5 +46,32 @@ object GROUPS_STUDENTS {
                 "INNER JOIN students T3 on t3._id = t2.student_id", null)
 
         return STUDENTS.toStudentList(cursor)
+    }
+
+    fun getStudentGroupId(studentId: String): Int{
+        var groupId: Int = 0
+
+        var cursor = MainActivity.db.readableDatabase.query(
+            TABLE_NAME,
+            arrayOf("group_id"),
+            "$COLUMN_NAME_STUDENT_ID = ?",
+            arrayOf(studentId),
+            null,
+            null,
+            null
+        )
+        with(cursor) {
+            while (moveToNext()) {
+                groupId = getInt(getColumnIndexOrThrow("group_id"))
+            }
+        }
+        cursor.close()
+         return groupId
+    }
+
+    fun getTotalStudentsInTheGroup(groupId: String): Long {
+        return DatabaseUtils.longForQuery(MainActivity.db.readableDatabase,
+                                    "SELECT COUNT(*) FROM groups_students WHERE group_id = $groupId",
+                                null)
     }
 }

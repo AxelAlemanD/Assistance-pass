@@ -7,18 +7,24 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/fullname"
-        android:layout_weight="2"
+        android:id="@+id/nameStudentG"
+        android:layout_weight="6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
 
-    <Switch
-        android:id="@+id/assistanceStudentSw"
+    <TextView
+        android:id="@+id/assistanceG"
+        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/lackG"
         android:layout_weight="1"
-        android:minHeight="48dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
 
 </LinearLayout>

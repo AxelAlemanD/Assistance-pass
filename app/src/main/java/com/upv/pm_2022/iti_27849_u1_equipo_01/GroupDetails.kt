@@ -74,7 +74,7 @@ class GroupDetails : AppCompatActivity(){
         studentsOfSelectedGroup.addAll(selectedGroup?.getStudents()!!)
         groupName.text = selectedGroup.name
         registeredStudents.text = studentsOfSelectedGroup.size.toString()
-        totalAttendancePasses.text = ASSISTANCES.getGroupAssistances(selectedGroup.id.toString()).size.toString()
+        totalAttendancePasses.text = selectedGroup.getTotalAssistancesPasses().toString()
         totalStudentsFailedDueToAbsence.text = "0"
 
         // Load students into ListView

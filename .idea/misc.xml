@@ -12,6 +12,9 @@
         <entry key="app/src/main/res/layout/fragment_students.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/group_details.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/item_assistance.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/item_detail_group.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_detail_student.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/item_group.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/random_student.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/student_details.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/students_list2.xml" value="0.19270833333333334" />

@@ -287,7 +287,8 @@
                         android:id="@+id/tvTotalStudentsOfSelectedGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="20" />
+                        android:layout_weight="20"
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -307,7 +308,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="20"
-                        android:text="64" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout

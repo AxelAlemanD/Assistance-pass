@@ -28,6 +28,11 @@ class Student(var id: Int? = null, var first_name: String? = null, var last_name
         GROUPS_STUDENTS.assignGroup(this.id.toString(), group.id.toString())
     }
 
+
+    fun getGroupId(): Int{
+        return GROUPS_STUDENTS.getStudentGroupId(this.id.toString())
+    }
+
     /**
      * Get all assistances of this student
      * @return MutableList<Assistance> List of assistances

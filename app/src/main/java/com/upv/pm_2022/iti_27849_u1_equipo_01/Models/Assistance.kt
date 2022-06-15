@@ -21,4 +21,8 @@ class Assistance(var id: Int? = null, var date: String, var is_late: Int, var gr
         }
         return values
     }
+
+    override fun toString(): String{
+        return "student_id: $student_id \t is_late: $is_late \t group_id: $group_id"
+    }
 }
