@@ -61,67 +61,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3.8"
+        android:layout_weight="4"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Alumnos inscritos:" />
-
-            <TextView
-                android:id="@+id/registeredStudents"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:text="55" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:orientation="horizontal">
+                android:layout_weight="2"
+                android:text="Asistencias: 55 (94%)"
+                android:textAlignment="center" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pases de lista:" />
-
-            <TextView
-                android:id="@+id/totalAttendancePasses"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:text="64" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Alumnos con menos de 75% de asistencia:" />
-
-            <TextView
-                android:id="@+id/totalStudentsFailedDueToAbsence"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:text="14" />
+                android:layout_weight="2"
+                android:text="Faltas: 3 (6%)"
+                android:textAlignment="center" />
         </LinearLayout>
 
     </LinearLayout>
@@ -129,50 +92,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4"
-        android:gravity="bottom"
-        android:orientation="horizontal">
-
-        <!-- Button erase -->
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
-            android:layout_weight="4"
-            android:backgroundTint="#00FFFFFF"
-            android:padding="2dp"
-            android:text="Guardar CSV"
-            android:textAllCaps="false"
-            android:textColor="#D0BCFF"
-            app:strokeColor="#938F99"
-            app:strokeWidth="1dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:orientation="horizontal"></LinearLayout>
-
-        <Button
-            android:id="@+id/addStudentBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_weight="4"
-            android:backgroundTint="#D0BCFF"
-            android:padding="2dp"
-            android:text="Agregar alumno"
-            android:textAllCaps="false"
-            android:textColor="#381E72" />
-
-        <!-- Button calculate -->
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.8"
+        android:layout_weight="1.5"
         android:orientation="vertical">
 
         <TextView
@@ -181,11 +101,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:text="Alumnos inscritos al grupo"
+            android:text="Lista de asistencias"
             android:textSize="14sp" />
 
         <ListView
-            android:id="@+id/lvGroupStudents"
+            android:id="@+id/lvAssistancesThisStudent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5" />
