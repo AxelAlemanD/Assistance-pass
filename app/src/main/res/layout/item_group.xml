@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="6dp"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/idGroup"
+        android:layout_weight="6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/numberStudents"
+        android:layout_weight="6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:backgroundTint="#00FFD4"
+        android:fontFamily="sans-serif-black"
+        android:textAllCaps="false"
+        android:textColor="#1C0E26"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:icon="@drawable/ic_baseline_group_24" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ff0000"
+        android:fontFamily="sans-serif-black"
+        android:textAllCaps="false"
+        android:textColor="#1C0E26"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:icon="@android:drawable/ic_menu_delete" />
+
+</LinearLayout>
