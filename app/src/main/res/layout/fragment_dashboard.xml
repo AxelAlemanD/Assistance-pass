@@ -52,7 +52,7 @@
             android:padding="5dp">
 
             <RelativeLayout
-                android:id="@+id/btnAssistancePass"
+                android:id="@+id/assistancePassBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -126,7 +126,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="18dp"
                         android:text="Arroja un alumno de manera aleatoria" />
 
                     <LinearLayout
@@ -226,7 +225,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -257,7 +260,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:spinnerMode="dropdown" />
+                    android:spinnerMode="dropdown"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <LinearLayout
@@ -339,7 +343,7 @@
             <ListView
                 android:id="@+id/lvStudents"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="179dp"
 
                 />
 

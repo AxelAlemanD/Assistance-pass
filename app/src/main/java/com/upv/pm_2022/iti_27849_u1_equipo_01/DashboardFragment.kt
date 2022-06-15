@@ -22,6 +22,7 @@ import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
 class DashboardFragment : Fragment() {
 
     lateinit var btnRandomStudent : RelativeLayout
+    lateinit var assistancePassBtn : RelativeLayout
     lateinit var tvTotalAssistancesOfSelectedGroup: TextView
     lateinit var tvTotalGroups: TextView
     lateinit var tvTotalStudents: TextView
@@ -41,6 +42,7 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
+        assistancePassBtn = view.findViewById(R.id.assistancePassBtn)
         btnRandomStudent = view.findViewById(R.id.btnRandomStudent)
         tvTotalStudents = view.findViewById(R.id.tvTotalStudents)
         tvTotalGroups = view.findViewById(R.id.tvTotalGroups)
@@ -65,6 +67,11 @@ class DashboardFragment : Fragment() {
 
         btnRandomStudent.setOnClickListener{
             val intent = Intent(this.requireContext(), RandomStudent::class.java)
+            startActivity(intent)
+        }
+
+        assistancePassBtn.setOnClickListener{
+            val intent = Intent(this.requireContext(), AssistancePass::class.java)
             startActivity(intent)
         }
 

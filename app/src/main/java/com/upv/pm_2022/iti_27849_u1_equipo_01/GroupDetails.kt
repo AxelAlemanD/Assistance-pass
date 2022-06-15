@@ -77,7 +77,6 @@ class GroupDetails : AppCompatActivity(){
         totalAttendancePasses.text = ASSISTANCES.getGroupAssistances(selectedGroup.id.toString()).size.toString()
         totalStudentsFailedDueToAbsence.text = "0"
 
-
         // Load students into ListView
         adapterStudents = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, studentsOfSelectedGroup)
         lvGroupStudents.adapter = adapterStudents
@@ -116,7 +115,7 @@ class GroupDetails : AppCompatActivity(){
             student.assignGroup(group)
             studentsOfSelectedGroup.add(student)
             adapterStudents.notifyDataSetChanged()
-            Toast.makeText(this.applicationContext, "Alumno agregado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.applicationContext, "Alumno agregado al grupo "+group.name, Toast.LENGTH_SHORT).show()
             return true
         }
         return false
