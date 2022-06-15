@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191919"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/image_1"
     android:orientation="vertical">
 
     <LinearLayout
@@ -44,15 +45,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15dp"
                 android:layout_weight="2"
-                android:text="Pasar lista"
-                android:textAllCaps="false" />
+                android:backgroundTint="#00FFD4"
+                android:fontFamily="sans-serif-black"
+                android:text="Editar"
+                android:textColor="#1C0E26"
+                android:textStyle="bold"
+                app:cornerRadius="30dp"
+                android:textAllCaps="false"
+                app:icon="@android:drawable/ic_menu_edit" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_weight="2"
-                android:text="Pasar lista"
+                android:backgroundTint="#00FFD4"
+                android:fontFamily="sans-serif-black"
+                android:text="Dar de baja"
+                android:textColor="#1C0E26"
+                android:textStyle="bold"
+                app:cornerRadius="30dp"
                 android:textAllCaps="false" />
         </LinearLayout>
 
@@ -106,6 +118,7 @@
 
         <ListView
             android:id="@+id/lvAssistancesThisStudent"
+            tools:listitem="@layout/item_detail_student"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5" />

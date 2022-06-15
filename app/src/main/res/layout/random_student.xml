@@ -29,9 +29,11 @@
         android:layout_marginRight="60dp"
         android:layout_marginBottom="30dp"
         android:layout_weight="1.7"
-        android:backgroundTint="#5E35B1"
+        android:backgroundTint="#00FFD4"
         android:text="Generar aleatorio"
-        android:textColor="#fff"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:textColor="#1C0E26"
         android:textSize="20dp"
         app:cornerRadius="300dp" />
 
