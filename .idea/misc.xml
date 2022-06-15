@@ -5,10 +5,11 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/add_student.xml" value="0.1671195652173913" />
-        <entry key="app/src/main/res/layout/fragment_assistance_pass.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_assistance_pass.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/fragment_groups.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_students.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/item_assistance.xml" value="0.1671195652173913" />
         <entry key="app/src/main/res/layout/remove_student.xml" value="0.1671195652173913" />
       </map>
     </option>
