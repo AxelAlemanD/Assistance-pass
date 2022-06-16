@@ -1,6 +1,5 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_01
 
-import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu

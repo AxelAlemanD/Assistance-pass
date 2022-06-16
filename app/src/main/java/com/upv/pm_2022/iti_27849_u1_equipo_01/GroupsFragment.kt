@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import com.upv.pm_2022.iti_27849_u1_equipo_01.Adapters.GroupStudentsAdapter
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
 
@@ -21,7 +20,7 @@ class GroupsFragment : Fragment() {
 
     lateinit var createGroupBtn: Button
     lateinit var lvGroups: ListView
-    lateinit var adapterGroups: GroupStudentsAdapter
+    lateinit var adapterGroups: ArrayAdapter<Group>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +30,7 @@ class GroupsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_groups, container, false)
         lvGroups = view.findViewById(R.id.lvGroups)
         createGroupBtn = view.findViewById(R.id.createGroupBtn)
-        adapterGroups = GroupStudentsAdapter(requireContext(), DashboardFragment.listGroups)
+        adapterGroups = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, DashboardFragment.listGroups)
         lvGroups.adapter = adapterGroups
 
         createGroupBtn.setOnClickListener{

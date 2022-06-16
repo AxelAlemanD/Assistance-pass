@@ -13,7 +13,7 @@ import com.upv.pm_2022.iti_27849_u1_equipo_01.R
 import java.text.SimpleDateFormat
 import java.util.*
 
-class StudentsAssistancesAdapter(private val context: Context, private val students: MutableList<Student>) : BaseAdapter() {
+class studentsAssistancesAdapter(private val context: Context, private val students: MutableList<Student>) : BaseAdapter() {
     private lateinit var tvStudentName: TextView
     private lateinit var tvGroupName: TextView
     private lateinit var tvAssistances: TextView
@@ -22,8 +22,8 @@ class StudentsAssistancesAdapter(private val context: Context, private val stude
     override fun getCount(): Int {
         return students.size
     }
-    override fun getItem(position: Int): Student {
-        return students[position]
+    override fun getItem(position: Int): Any {
+        return position
     }
     override fun getItemId(position: Int): Long {
         return position.toLong()

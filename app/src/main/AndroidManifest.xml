@@ -31,9 +31,6 @@
         <activity
             android:name=".AssistancePass">
         </activity>
-        <activity
-            android:name=".StudentDetails">
-        </activity>
     </application>
 
 </manifest>

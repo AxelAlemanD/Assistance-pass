@@ -13,7 +13,7 @@ import com.upv.pm_2022.iti_27849_u1_equipo_01.R
 import java.text.SimpleDateFormat
 import java.util.*
 
-class StudentsAdapter(private val context: Context, private val students: MutableList<Student>) : BaseAdapter() {
+class studentsAdapter(private val context: Context, private val students: MutableList<Student>) : BaseAdapter() {
     private lateinit var fullname: TextView
     private lateinit var assistanceStudentSw: Switch
     private var asistances : MutableList<Assistance> = mutableListOf()

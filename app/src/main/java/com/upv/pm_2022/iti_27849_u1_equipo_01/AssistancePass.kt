@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.upv.pm_2022.iti_27849_u1_equipo_01.Adapters.StudentsAdapter
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Adapters.studentsAdapter
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.ASSISTANCES
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
@@ -14,7 +14,7 @@ class AssistancePass : AppCompatActivity(){
     lateinit var spGroups : Spinner
     lateinit var adapterGroups : ArrayAdapter<Group>
     lateinit var assistanceList : ListView
-    lateinit var adapterStudents : StudentsAdapter
+    lateinit var adapterStudents : studentsAdapter
     lateinit var saveAssistanceBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class AssistancePass : AppCompatActivity(){
      */
     fun loadStudentList(selectedGroup: Group){
         val studentsOfSelectedGroup : MutableList<Student> = selectedGroup?.getStudents()!!
-        adapterStudents = StudentsAdapter(this, studentsOfSelectedGroup)
+        adapterStudents = studentsAdapter(this, studentsOfSelectedGroup)
         assistanceList.adapter = adapterStudents
     }
 

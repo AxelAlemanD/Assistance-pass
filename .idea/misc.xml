@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/about.xml" value="0.19270833333333334" />
+        <entry key="..\:/Users/Solem/Downloads/Assistance-pass-main (1)/Assistance-pass-main/app/src/main/res/layout/activity_main.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/Solem/Downloads/Assistance-pass-main (1)/Assistance-pass-main/app/src/main/res/layout/group_details.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Solem/Downloads/Assistance-pass-main (1)/Assistance-pass-main/app/src/main/res/layout/item_detail_group.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Solem/Downloads/Assistance-pass-main (1)/Assistance-pass-main/app/src/main/res/layout/item_detail_student.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Solem/Downloads/Assistance-pass-main (1)/Assistance-pass-main/app/src/main/res/layout/student_details.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/add_group.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/add_student_from_group.xml" value="0.1" />
@@ -20,7 +24,6 @@
         <entry key="app/src/main/res/layout/random_student.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/student_details.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/students_list2.xml" value="0.19270833333333334" />
-        <entry key="app/src/main/res/menu/options.xml" value="0.19270833333333334" />
       </map>
     </option>
   </component>
