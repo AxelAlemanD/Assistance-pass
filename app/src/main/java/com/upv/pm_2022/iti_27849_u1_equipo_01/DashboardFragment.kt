@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Adapters.studentsAssistancesAdapter
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.ASSISTANCES
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS_STUDENTS
@@ -28,7 +29,7 @@ class DashboardFragment : Fragment() {
     lateinit var tvTotalStudents: TextView
     lateinit var tvTotalStudentsOfSelectedGroup: TextView
     lateinit var lvStudents : ListView
-    lateinit var adapterStudents : ArrayAdapter<Student>
+    lateinit var adapterStudents : studentsAssistancesAdapter
     lateinit var spGroups : Spinner
     lateinit var adapterGroups : ArrayAdapter<Group>
     companion object{
@@ -99,7 +100,7 @@ class DashboardFragment : Fragment() {
         tvTotalAssistancesOfSelectedGroup.text = selectedGroup.getTotalAssistancesPasses().toString()
 
         // Load students into ListView
-        adapterStudents = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, studentsOfSelectedGroup)
+        adapterStudents = studentsAssistancesAdapter(requireContext(), studentsOfSelectedGroup)
         lvStudents.adapter = adapterStudents
     }
 }
