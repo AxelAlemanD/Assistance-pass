@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/image_1"
+    android:gravity="center"
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
@@ -24,12 +25,12 @@
 
     <Spinner
         android:id="@+id/assistanceGroup"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
         android:gravity="center"
-        android:textAlignment="center" />
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,9 +88,9 @@
 
     <ListView
         android:id="@+id/assistanceList"
-        android:layout_margin="10dp"
-        tools:listitem="@layout/item_assistance"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:listitem="@layout/item_assistance" />
 
 </LinearLayout>

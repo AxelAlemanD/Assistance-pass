@@ -2,6 +2,8 @@ package com.upv.pm_2022.iti_27849_u1_equipo_01
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 
@@ -24,6 +26,28 @@ class MainActivity : AppCompatActivity() {
         setUpTabBar()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.about -> showDialogAbout()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showDialogAbout(){
+        // Assign values
+        val builder = AlertDialog.Builder(this)
+        val viewDialog = layoutInflater.inflate(R.layout.about, null)
+        // Pass view to builder
+        builder.setView(viewDialog)
+        // Create dialog
+        val dialog = builder.create()
+        dialog.show()
+    }
 
     private fun setUpTabBar()
     {

@@ -29,6 +29,7 @@
         android:textAllCaps="false"
         android:textColor="#1C0E26"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:cornerRadius="30dp"
         app:icon="@drawable/ic_baseline_group_24" />
 
@@ -40,6 +41,7 @@
         android:textAllCaps="false"
         android:textColor="#1C0E26"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:cornerRadius="30dp"
         app:icon="@android:drawable/ic_menu_delete" />
 
