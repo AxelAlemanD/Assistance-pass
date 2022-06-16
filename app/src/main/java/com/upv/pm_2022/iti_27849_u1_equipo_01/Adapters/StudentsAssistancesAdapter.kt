@@ -22,8 +22,8 @@ class studentsAssistancesAdapter(private val context: Context, private val stude
     override fun getCount(): Int {
         return students.size
     }
-    override fun getItem(position: Int): Any {
-        return position
+    override fun getItem(position: Int): Student {
+        return students[position]
     }
     override fun getItemId(position: Int): Long {
         return position.toLong()
