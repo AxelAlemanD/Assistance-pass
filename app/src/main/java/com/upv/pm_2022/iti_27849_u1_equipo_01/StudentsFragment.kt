@@ -71,6 +71,7 @@ class StudentsFragment : Fragment() {
      */
     fun loadStudentList(selectedGroup: Group){
 //        val studentsOfSelectedGroup : MutableList<Student> = selectedGroup?.getStudents()!!
+        studentsOfSelectedGroup.clear()
         studentsOfSelectedGroup.addAll(selectedGroup?.getStudents()!!)
         total_students.text = "Total de estudiantes: "+ studentsOfSelectedGroup.size.toString()
         adapterStudents = studentsAssistancesAdapter(requireContext(), studentsOfSelectedGroup)
