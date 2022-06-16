@@ -83,6 +83,17 @@ object ASSISTANCES {
         return totalAssistances
     }
 
+
+    fun getTotalStudentAssistances(studentId: String): Long{
+        val totalAssistances = DatabaseUtils.longForQuery(MainActivity.db.readableDatabase, "SELECT COUNT(*) FROM assistances WHERE student_id = $studentId AND is_late = 1", null)
+        return totalAssistances
+    }
+
+    fun getTotalStudentFauls(studentId: String): Long{
+        val totalFauls = DatabaseUtils.longForQuery(MainActivity.db.readableDatabase, "SELECT COUNT(*) FROM assistances WHERE student_id = $studentId AND is_late = 0", null)
+        return totalFauls
+    }
+
     /**
      * Convert Cursor to Assistance list
      * @param cursor

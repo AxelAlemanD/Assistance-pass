@@ -2,6 +2,7 @@ package com.upv.pm_2022.iti_27849_u1_equipo_01.Models
 
 import android.content.ContentValues
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.ASSISTANCES
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.GROUPS_STUDENTS
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.STUDENTS
 
@@ -31,6 +32,18 @@ class Student(var id: Int? = null, var first_name: String? = null, var last_name
 
     fun getGroupId(): Int{
         return GROUPS_STUDENTS.getStudentGroupId(this.id.toString())
+    }
+
+    fun getGroupName(): String{
+        return GROUPS.find(this.getGroupId().toString()).name.toString()
+    }
+
+    fun getTotalStudentAssistances(): Long{
+        return ASSISTANCES.getTotalStudentAssistances(this.id.toString())
+    }
+
+    fun getTotalStudentFauls(): Long{
+        return ASSISTANCES.getTotalStudentFauls(this.id.toString())
     }
 
     /**

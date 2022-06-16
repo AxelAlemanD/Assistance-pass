@@ -13,13 +13,15 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/nameStudentG"
+            android:id="@+id/tvStudentName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/idGroup"
+            android:id="@+id/tvGroupName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />
@@ -27,17 +29,23 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/assistanceG"
-        android:layout_weight="1"
+        android:id="@+id/tvAssistances"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_weight="1"
+        android:text=""
+        android:textColor="#00897B"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/lackG"
-        android:layout_weight="1"
+        android:id="@+id/tvFails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_weight="1"
+        android:text=""
+        android:textColor="#E53935"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

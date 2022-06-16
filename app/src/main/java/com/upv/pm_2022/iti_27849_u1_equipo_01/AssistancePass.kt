@@ -26,7 +26,7 @@ class AssistancePass : AppCompatActivity(){
         assistanceList = findViewById(R.id.assistanceList)
         saveAssistanceBtn = findViewById(R.id.saveAssistanceBtn)
 
-        // Load test data into spinner
+        // Load data into spinner
         adapterGroups = ArrayAdapter(applicationContext, android.R.layout.simple_spinner_item,
             DashboardFragment.listGroups
         )
