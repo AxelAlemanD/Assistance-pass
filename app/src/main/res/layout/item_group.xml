@@ -7,20 +7,21 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/idGroup"
+        android:id="@+id/lvGroupName"
         android:layout_weight="6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
 
     <TextView
-        android:id="@+id/numberStudents"
+        android:id="@+id/lvNumberStudents"
         android:layout_weight="6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
 
     <Button
+        android:id="@+id/assistanceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
@@ -33,6 +34,7 @@
         app:icon="@drawable/ic_baseline_group_24" />
 
     <Button
+        android:id="@+id/deleteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#ff0000"

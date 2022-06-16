@@ -28,6 +28,14 @@ class Group(var id: Int? = null, var name: String? = null) : Serializable {
     }
 
     /**
+     * Get total students of this group
+     * @return Long Total students
+     */
+    fun getTotalStudentsInThisGroup(): Long{
+        return GROUPS_STUDENTS.getTotalStudentsInTheGroup(this.id.toString())
+    }
+
+    /**
      * Get all assistances of this group
      * @return MutableList<Assistance> List of assistances
      */

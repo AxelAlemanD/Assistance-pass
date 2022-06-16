@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.upv.pm_2022.iti_27849_u1_equipo_01.Adapters.studentsAssistancesAdapter
+import com.upv.pm_2022.iti_27849_u1_equipo_01.Adapters.StudentsAssistancesAdapter
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Contracts.STUDENTS
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Group
 import com.upv.pm_2022.iti_27849_u1_equipo_01.Models.Student
@@ -23,7 +23,7 @@ class StudentsFragment : Fragment() {
     lateinit var groupsSpinner : Spinner
     lateinit var adapterGroups : ArrayAdapter<Group>
     lateinit var lvStudents : ListView
-    lateinit var adapterStudents : studentsAssistancesAdapter
+    lateinit var adapterStudents : StudentsAssistancesAdapter
     lateinit var total_students: TextView
     lateinit var createStudentBtn: Button
     var selectedGroup: Group? = null
@@ -70,11 +70,10 @@ class StudentsFragment : Fragment() {
      * @param Group selectedGroup
      */
     fun loadStudentList(selectedGroup: Group){
-//        val studentsOfSelectedGroup : MutableList<Student> = selectedGroup?.getStudents()!!
         studentsOfSelectedGroup.clear()
         studentsOfSelectedGroup.addAll(selectedGroup?.getStudents()!!)
         total_students.text = "Total de estudiantes: "+ studentsOfSelectedGroup.size.toString()
-        adapterStudents = studentsAssistancesAdapter(requireContext(), studentsOfSelectedGroup)
+        adapterStudents = StudentsAssistancesAdapter(requireContext(), studentsOfSelectedGroup)
         lvStudents.adapter = adapterStudents
     }
 
