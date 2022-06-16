@@ -71,7 +71,7 @@ object GROUPS_STUDENTS {
 
     fun getTotalStudentsInTheGroup(groupId: String): Long {
         return DatabaseUtils.longForQuery(MainActivity.db.readableDatabase,
-                                    "SELECT COUNT(_id) FROM groups_students WHERE group_id = $groupId",
+                                    "SELECT COUNT(*) FROM groups_students WHERE group_id = $groupId",
                                 null)
     }
 }
